@@ -8,7 +8,7 @@ permissions:
 jobs:
   verify_files:
     name: Verify Files
-    runs-on: windows-latest
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -43,12 +43,12 @@ jobs:
     name: Test
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [macOS-latest]
         node: [21.x, 20.x, 18.x, "18.18.0"]
         include:
           - os: ubuntu-latest
             node: "lts/*"
-          - os: macOS-latest
+          - os: windows-latest
             node: "lts/*"
     runs-on: ${{ matrix.os }}
     steps:
